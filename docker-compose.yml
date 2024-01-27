@@ -100,6 +100,14 @@ services:
       - KEYCLOAK_ISSUER_URI=http://keycloak:8080/realms/sdia-realm
       - KEYCLOAK_AUTH=http://localhost:8080/realms/sdia-realm/protocol/openid-connect/auth
       - KEYCLOAK_AUTH_TOKEN=http://keycloak:8080/realms/sdia-realm/protocol/openid-connect/token
+  angular-front:
+    build: ./customer-front-angular-app
+    container_name: angular-front
+    ports:
+      - '8085:80'
+    expose:
+      - '8085'
+    restart: always
 
 volumes:
   mysql_data:
